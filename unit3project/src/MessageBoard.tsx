@@ -1,6 +1,6 @@
 export function MessageBoard({items}:{items:string[]}) {
     return <>
-        <div>
+        <div id="center">
             {items.map((item) => (
                 <p>{item}</p>
             ))}
