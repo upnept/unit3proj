@@ -1,32 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+let saved = JSON.parse(localStorage.getItem("items") || "[]");
+
+  let [items, setItems] = useState<string[]>(saved);
+  let [input, setInput] = useState("");
+
+  function addItem() {
+    let updated = items.concat(input);
+
+    setItems(updated);
+    localStorage.setItem("items", JSON.stringify(updated));
+
+    setInput("");
+  }
 
   return (
     <>
-      <section id="top">
-        <div>
-          <h1>Unit 3 Project</h1>
-          <h2>Message Board</h2>
-        </div>
-      </section>
+      <form onSubmit={addItem}>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="add item"
+        />
+      </form>
 
-      <section id="center">
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
+      <div>
+        {items.map((item) => (
+          <p>{item}</p>
+        ))}
+      </div>
     </>
   )
 }
