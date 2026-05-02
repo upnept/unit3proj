@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 
+import { MessageBoard } from "./MessageBoard";
+import { MessageInput } from "./MessageInput";
+
 function App() {
   let saved = JSON.parse(localStorage.getItem("items") || "[]");
 
@@ -9,7 +12,8 @@ function App() {
 
   return (
     <>
-      
+      <MessageInput items={items} setItems={setItems} />
+      <MessageBoard items={items} />
     </>
   )
 }

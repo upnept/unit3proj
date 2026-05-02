@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function MessageInput(items, setItems) {
+export function MessageInput({items, setItems}:{items:string[],setItems:any}) {
     let [input, setInput] = useState("");
 
     function addItem() {

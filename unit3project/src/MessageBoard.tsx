@@ -1,4 +1,4 @@
-export function MessageBoard(items) {
+export function MessageBoard({items}:{items:string[]}) {
     return <>
         <div>
             {items.map((item) => (
