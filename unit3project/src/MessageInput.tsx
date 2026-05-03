@@ -7,7 +7,7 @@ export function MessageInput({lightingMode, items, setItems}:{lightingMode:boole
         let updated = items.concat(input);
 
         setItems(updated);
-        localStorage.setItem("items", JSON.stringify(updated));
+        localStorage.setItem("msgs", JSON.stringify(updated));
 
         setInput("");
     }
