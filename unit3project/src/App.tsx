@@ -5,15 +5,20 @@ import { MessageBoard } from "./MessageBoard";
 import { MessageInput } from "./MessageInput";
 
 function App() {
-  let saved = JSON.parse(localStorage.getItem("items") || "[]");
+  let savedMsgs = JSON.parse(localStorage.getItem("msgs") || "[]");
+  let savedTheme = JSON.parse(localStorage.getItem("theme1") || "false");
 
-  let [items, setItems] = useState(saved);
-  let [lightingMode, setLightingMode] = useState(false);
+  let [items, setItems] = useState(savedMsgs);
+  let [lightingMode, setLightingMode] = useState(savedTheme);
 
   return (
     <>
       <div className={lightingMode && "light" || "dark"}>
-        <button onClick={() => setLightingMode(!lightingMode)}>
+        <button onClick={() => {
+          let newMode = !lightingMode;
+          setLightingMode(newMode);
+          localStorage.setItem("theme1", JSON.stringify(newMode));
+        }}>
           Toggle light/dark mode
         </button>
         <MessageInput lightingMode={lightingMode} items={items} setItems={setItems} />
