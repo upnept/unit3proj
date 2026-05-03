@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function MessageInput({items, setItems}:{items:string[],setItems:any}) {
+export function MessageInput({lightingMode, items, setItems}:{lightingMode:boolean,items:string[],setItems:any}) {
     let [input, setInput] = useState("");
 
     function addItem() {
@@ -13,7 +13,7 @@ export function MessageInput({items, setItems}:{items:string[],setItems:any}) {
     }
 
     return <>
-        <form onSubmit={addItem}>
+        <form className={lightingMode && "light" || "dark"}  onSubmit={addItem}>
             <input
             value={input}
             onChange={(e) => setInput(e.target.value)}

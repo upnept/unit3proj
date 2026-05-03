@@ -1,3 +1,15 @@
+.dark {
+  background: #16171d;
+  color: white;
+  min-height: 46vh;
+}
+
+.light {
+  background: white;
+  color: black;
+  min-height: 46vh;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

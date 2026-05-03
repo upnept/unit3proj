@@ -1,6 +1,6 @@
-export function MessageBoard({items}:{items:string[]}) {
+export function MessageBoard({lightingMode, items}:{lightingMode:boolean,items:string[]}) {
     return <>
-        <div id="center">
+        <div className={lightingMode && "light" || "dark"} id="center">
             {items.map((item) => (
                 <p>{item}</p>
             ))}

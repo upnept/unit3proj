@@ -12,8 +12,13 @@ function App() {
 
   return (
     <>
-      <MessageInput items={items} setItems={setItems} />
-      <MessageBoard items={items} />
+      <div className={lightingMode && "light" || "dark"}>
+        <button onClick={() => setLightingMode(!lightingMode)}>
+          Toggle light/dark mode
+        </button>
+        <MessageInput lightingMode={lightingMode} items={items} setItems={setItems} />
+        <MessageBoard lightingMode={lightingMode} items={items} />
+      </div>
     </>
   )
 }
